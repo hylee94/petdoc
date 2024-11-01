@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "chart")
-public class Chart {
+public class Record {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int no;

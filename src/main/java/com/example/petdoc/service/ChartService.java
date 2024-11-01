@@ -1,6 +1,6 @@
 package com.example.petdoc.service;
 
-import com.example.petdoc.model.Chart;
+import com.example.petdoc.model.Record;
 import com.example.petdoc.repository.ChartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,28 +14,28 @@ public class ChartService {
     private final ChartRepository chartRepository;
 
     //전체보기
-    public List<Chart> list(){
+    public List<Record> list(){
         return chartRepository.findAll();
     }
 
     //추가
-    public Chart insert(Chart chart) {
-        return chartRepository.save(chart);
+    public Record insert(Record record) {
+        return chartRepository.save(record);
     }
 
     //수정
     @Transactional
-    public Chart update(int no, Chart chart) {
-        Chart c = chartRepository.findById(no).get();
+    public Record update(int no, Record record) {
+        Record c = chartRepository.findById(no).get();
 
-        c.setPetid(chart.getPetid());
-        c.setDate(chart.getDate());
-        c.setDisease(chart.getDisease());
-        c.setDoctor_op(chart.getDoctor_op());
-        c.setMedicine(chart.getMedicine());
-        c.setFee(chart.getFee());
-        c.setHospital(chart.getHospital());
-        c.setMemo(chart.getMemo());
+        c.setPetid(record.getPetid());
+        c.setDate(record.getDate());
+        c.setDisease(record.getDisease());
+        c.setDoctor_op(record.getDoctor_op());
+        c.setMedicine(record.getMedicine());
+        c.setFee(record.getFee());
+        c.setHospital(record.getHospital());
+        c.setMemo(record.getMemo());
 
         return c;
     }

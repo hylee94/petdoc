@@ -1,6 +1,6 @@
 package com.example.petdoc.controller;
 
-import com.example.petdoc.model.Chart;
+import com.example.petdoc.model.Record;
 import com.example.petdoc.service.ChartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,21 +15,21 @@ public class ChartController {
 
     //전체보기
     @GetMapping("/list")
-    public List<Chart> list() {
+    public List<Record> list() {
         return chartService.list();
     }
 
     //추가
     @PostMapping("/insert")
-    public Chart insert(@RequestBody Chart chart) {
-        return chartService.insert(chart);
+    public Record insert(@RequestBody Record record) {
+        return chartService.insert(record);
     }
 
     //수정
     @PutMapping("/update/{no}")
-    public Chart update(@PathVariable int no,
-                        @RequestBody Chart chart) {
-        return chartService.update(no, chart);
+    public Record update(@PathVariable int no,
+                         @RequestBody Record record) {
+        return chartService.update(no, record);
     }
 
     //삭제
