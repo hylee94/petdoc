@@ -21,9 +21,7 @@ public class Record {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Pet petid;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
-    @CreationTimestamp
-    private Date date;
+    private String date;
 
     private String disease;
     private String doctor_op;

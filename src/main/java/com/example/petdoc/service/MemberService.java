@@ -40,4 +40,15 @@ public class MemberService {
         memberRepository.deleteById(id);
     }
 
+    //로그인
+    @Transactional
+    public Member login(String id, String password) {
+        Member member = memberRepository.findById(id).orElse(null);
+        if (member != null && member.getPassword().equals(password)) {
+            return member; // 로그인 성공 시 Member 객체 반환
+        }else {
+            return null; // 로그인 실패 시 null 반환
+        }
+    }
+
 }

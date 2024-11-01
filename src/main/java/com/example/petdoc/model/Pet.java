@@ -9,7 +9,6 @@ import lombok.Data;
 @Table(name = "pet")
 public class Pet {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String petid;
 
     @ManyToOne

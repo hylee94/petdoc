@@ -12,7 +12,6 @@ import java.util.Date;
 @Table(name = "member")
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private String email;
     private String password;
