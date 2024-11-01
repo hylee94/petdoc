@@ -9,7 +9,8 @@ import lombok.Data;
 @Table(name = "pet")
 public class Pet {
     @Id
-    private String petid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int petid;
 
     @ManyToOne
     @JoinColumn(name = "memberid", referencedColumnName = "id")
