@@ -21,10 +21,18 @@ public class MemberController {
         return memberService.list();
     }
 
-    //추가
+    //추가(회원가입)
     @PostMapping("/insert")
-    public Member insert(@RequestBody Member member) {
-        return memberService.insert(member);
+    public ResponseEntity<?> insert(@RequestBody Member member) {
+        //ID 중복 확인
+        if (memberService.isIdDuplicated(member.getId())) {
+            //ID가 중복된 경우 409 Conflict 응답 반환
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("아이디가 중복됩니다.");
+        }
+
+        //중복이 없는 경우에만 회원가입 진행
+        Member newMember = memberService.insert(member);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newMember);
     }
 
     //수정

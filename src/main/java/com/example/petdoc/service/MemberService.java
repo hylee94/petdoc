@@ -30,7 +30,6 @@ public class MemberService {
 
         m.setEmail(member.getEmail());
         m.setPassword(member.getPassword());
-        m.setRegdate(member.getRegdate());
 
         return m;
     }
@@ -49,6 +48,11 @@ public class MemberService {
         }else {
             return null; // 로그인 실패 시 null 반환
         }
+    }
+
+    // ID 중복 확인 메서드
+    public boolean isIdDuplicated(String id) {
+        return memberRepository.existsById(id);
     }
 
 }
