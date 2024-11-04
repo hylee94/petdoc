@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "pet")
@@ -22,4 +25,7 @@ public class Pet {
     private String gender;
     private int age;
     private String hospital;
+
+    @OneToMany(mappedBy = "petid", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Record> records = new ArrayList<>();
 }
