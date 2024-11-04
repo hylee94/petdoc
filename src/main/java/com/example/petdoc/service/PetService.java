@@ -1,5 +1,6 @@
 package com.example.petdoc.service;
 
+import com.example.petdoc.model.Member;
 import com.example.petdoc.model.Pet;
 import com.example.petdoc.repository.PetRepository;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class PetService {
     private final PetRepository petRepository;
+
+    public List<Pet> list(){
+        return petRepository.findAll();
+    }
 
     //전체보기
     public List<Pet> list(String id){

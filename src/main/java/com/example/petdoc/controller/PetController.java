@@ -14,6 +14,11 @@ import java.util.List;
 public class PetController {
     private final PetService petService;
 
+    @GetMapping("/list")
+    public List<Pet> list() {
+        return petService.list();
+    }
+
     //전체보기
     @GetMapping("/list/{id}")
     public List<Pet> list(@PathVariable String id) {
