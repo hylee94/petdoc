@@ -14,8 +14,9 @@ public class PetService {
     private final PetRepository petRepository;
 
     //전체보기
-    public List<Pet> list(){
-        return petRepository.findAll();
+    public List<Pet> list(String id){
+        System.out.printf("id : "+id);
+        return petRepository.findByMemberid_id(id);
     }
 
     //추가
@@ -25,7 +26,7 @@ public class PetService {
 
     //수정
     @Transactional
-    public Pet update(String petid, Pet pet) {
+    public Pet update(int petid, Pet pet) {
         Pet p = petRepository.findById(petid).get();
 
         p.setMemberid(pet.getMemberid());
@@ -39,7 +40,7 @@ public class PetService {
     }
 
     //삭제
-    public void delete(String petid) {
+    public void delete(int petid) {
         petRepository.deleteById(petid);
     }
 }

@@ -15,9 +15,10 @@ public class PetController {
     private final PetService petService;
 
     //전체보기
-    @GetMapping("/list")
-    public List<Pet> list() {
-        return petService.list();
+    @GetMapping("/list/{id}")
+    public List<Pet> list(@PathVariable String id) {
+        System.out.printf("ididid : "+id);
+        return petService.list(id);
     }
 
     //추가
@@ -28,14 +29,14 @@ public class PetController {
 
     //수정
     @PutMapping("/update/{petid}")
-    public Pet update(@PathVariable String petid,
+    public Pet update(@PathVariable int petid,
                       @RequestBody Pet pet) {
         return petService.update(petid, pet);
     }
 
     //삭제
     @DeleteMapping("/delete/{petid}")
-    public void delete(@PathVariable String petid) {
+    public void delete(@PathVariable int petid) {
         petService.delete(petid);
     }
 }
